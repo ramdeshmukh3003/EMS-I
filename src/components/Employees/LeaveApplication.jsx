@@ -18,7 +18,7 @@ const LeaveApplication = () => {
         }
         fetchData();
 
-    },[]);
+    },[id]);
     
   return (
     application?

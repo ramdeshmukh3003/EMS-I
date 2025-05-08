@@ -15,7 +15,7 @@ const Admin = () =>
       if(res.success)
         dispatch(setCount(res.data));
     })();
-  },[])
+  },[dispatch])
 
   const {counts}  = useSelector((state)=>state.mainSlice);
   const {admin,employee,leader,team} = counts;

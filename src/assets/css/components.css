@@ -804,7 +804,7 @@ tr:first-child > td > .fc-day-grid-event {
       color: #fff; }
 
 /* 1.20 Slider */
-.slider .owl-nav [class*=owl-] {
+.slider .owl-nav [className*=owl-] {
   position: absolute;
   top: 50%;
   left: 35px;
@@ -817,14 +817,14 @@ tr:first-child > td > .fc-day-grid-event {
   height: 40px;
   line-height: 34px;
   opacity: .3; }
-  .slider .owl-nav [class*=owl-]:hover {
+  .slider .owl-nav [className*=owl-]:hover {
     background-color: #000; }
 
 .slider .owl-nav .owl-next {
   right: 0;
   left: initial; }
 
-.slider:hover .owl-nav [class*=owl-] {
+.slider:hover .owl-nav [className*=owl-] {
   opacity: 1; }
 
 .slider .slider-caption {

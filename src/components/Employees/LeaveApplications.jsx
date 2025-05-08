@@ -30,7 +30,7 @@ const LeaveApplications = () => {
     }
     fetchData();
 
-  },[]);
+  },[user.id]);
 
   const searchLeaveApplications = async () => {
       const obj = {
@@ -94,7 +94,7 @@ const LeaveApplications = () => {
                           <div className="input-group">
                                   <div className="input-group-prepend">
                                   <div className="input-group-text">
-                                  <i class="fa fa-calendar"></i>
+                                  <i className="fa fa-calendar"></i>
                                   </div>
                                   </div>
                                   <input onChange={(e)=>setAppliedDate(e.target.value)} type="date" id="startDate" name="startDate" className="form-control"></input>

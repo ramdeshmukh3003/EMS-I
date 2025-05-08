@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useHistory } from "react-router";
@@ -33,8 +35,11 @@ const Navigation = () =>
                     <input className="form-control" type="search" placeholder="Search" aria-label="Search" data-width="250"/>
                     <button className="btn" type="submit"><i className="fas fa-search"></i></button>
                     
+          
                 </div>
+                
                 </form>
+                
                 <ul className="navbar-nav navbar-right">
                 <li className="dropdown dropdown-list-toggle"><a href='#' data-toggle="dropdown" className="nav-link notification-toggle nav-link-lg beep"><i className="far fa-bell"></i></a>
                     <div className="dropdown-menu dropdown-list dropdown-menu-right">

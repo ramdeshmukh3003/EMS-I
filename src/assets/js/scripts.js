@@ -36,14 +36,14 @@ $('[data-confirm]').each(function() {
     buttons: [
       {
         text: me.data('confirm-text-yes') || 'Yes',
-        class: 'btn btn-danger btn-shadow',
+        className: 'btn btn-danger btn-shadow',
         handler: function() {
           eval(me.data('confirm-yes'));
         }
       },
       {
         text: me.data('confirm-text-cancel') || 'Cancel',
-        class: 'btn btn-secondary',
+        className: 'btn btn-secondary',
         handler: function(modal) {
           $.destroyModal(modal);
           eval(me.data('confirm-no'));
@@ -59,10 +59,10 @@ $(function() {
     cursoropacitymin: 0,
     cursoropacitymax: .8,
     zindex: 892
-  }, now_layout_class = null;
+  }, now_layout_className = null;
 
   var sidebar_sticky = function() {
-    if($("body").hasClass('layout-2')) {
+    if($("body").hasclassName('layout-2')) {
       $("body.layout-2 #sidebar-wrapper").stick_in_parent({
         parent: $('body')
       });
@@ -91,7 +91,7 @@ $(function() {
       $(".main-sidebar .sidebar-menu li a.has-dropdown").off('click').on('click', function() {
         var me     = $(this);
         var active = false;
-        if(me.parent().hasClass("active")){
+        if(me.parent().hasclassName("active")){
           active = true;
         }
 
@@ -100,16 +100,16 @@ $(function() {
           return false;
         });
 
-        $('.main-sidebar .sidebar-menu li.active').removeClass('active');
+        $('.main-sidebar .sidebar-menu li.active').removeclassName('active');
 
         if(active==true) {
-          me.parent().removeClass('active');
+          me.parent().removeclassName('active');
           me.parent().find('> .dropdown-menu').slideUp(500, function() {
             update_sidebar_nicescroll();
             return false;
           });
         }else{
-          me.parent().addClass('active');
+          me.parent().addclassName('active');
           me.parent().find('> .dropdown-menu').slideDown(500, function() {
             update_sidebar_nicescroll();
             return false;
@@ -138,19 +138,19 @@ $(function() {
   })
 
   $(".nav-collapse-toggle").click(function() {
-    $(this).parent().find('.navbar-nav').toggleClass('show');
+    $(this).parent().find('.navbar-nav').toggleclassName('show');
     return false;
   });
 
   $(document).on('click', function(e) {
-    $(".nav-collapse .navbar-nav").removeClass('show');
+    $(".nav-collapse .navbar-nav").removeclassName('show');
   });
 
   var toggle_sidebar_mini = function(mini) {
     let body = $('body');
 
     if(!mini) {
-      body.removeClass('sidebar-mini');
+      body.removeclassName('sidebar-mini');
       $(".main-sidebar").css({
         overflow: 'hidden'
       });
@@ -163,8 +163,8 @@ $(function() {
       $(".main-sidebar .sidebar-menu > li > a").removeAttr('data-original-title');
       $(".main-sidebar .sidebar-menu > li > a").removeAttr('title');
     }else{
-      body.addClass('sidebar-mini');
-      body.removeClass('sidebar-show');
+      body.addclassName('sidebar-mini');
+      body.removeclassName('sidebar-show');
       sidebar_nicescroll.remove();
       sidebar_nicescroll = null;
       $(".main-sidebar .sidebar-menu > li").each(function() {
@@ -172,7 +172,7 @@ $(function() {
 
         if(me.find('> .dropdown-menu').length) {
           me.find('> .dropdown-menu').hide();
-          me.find('> .dropdown-menu').prepend('<li class="dropdown-title pt-3">'+ me.find('> a').text() +'</li>');
+          me.find('> .dropdown-menu').prepend('<li className="dropdown-title pt-3">'+ me.find('> a').text() +'</li>');
         }else{
           me.find('> a').attr('data-toggle', 'tooltip');
           me.find('> a').attr('data-original-title', me.find('> a').text());
@@ -189,19 +189,19 @@ $(function() {
       w = $(window);
 
     if(w.outerWidth() <= 1024) {
-      body.removeClass('search-show search-gone');
-      if(body.hasClass('sidebar-gone')) {
-        body.removeClass('sidebar-gone');
-        body.addClass('sidebar-show');
+      body.removeclassName('search-show search-gone');
+      if(body.hasclassName('sidebar-gone')) {
+        body.removeclassName('sidebar-gone');
+        body.addclassName('sidebar-show');
       }else{
-        body.addClass('sidebar-gone');
-        body.removeClass('sidebar-show');
+        body.addclassName('sidebar-gone');
+        body.removeclassName('sidebar-show');
       }
 
       update_sidebar_nicescroll();
     }else{
-      body.removeClass('search-show search-gone');
-      if(body.hasClass('sidebar-mini')) {
+      body.removeclassName('search-show search-gone');
+      if(body.hasclassName('sidebar-mini')) {
         toggle_sidebar_mini(false);
       }else{
         toggle_sidebar_mini(true);
@@ -213,31 +213,31 @@ $(function() {
 
   var toggleLayout = function() {
     var w = $(window),
-      layout_class = $('body').attr('class') || '',
-      layout_classes = (layout_class.trim().length > 0 ? layout_class.split(' ') : '');
+      layout_className = $('body').attr('className') || '',
+      layout_classNamees = (layout_className.trim().length > 0 ? layout_className.split(' ') : '');
 
-    if(layout_classes.length > 0) {
-      layout_classes.forEach(function(item) {
+    if(layout_classNamees.length > 0) {
+      layout_classNamees.forEach(function(item) {
         if(item.indexOf('layout-') != -1) {
-          now_layout_class = item;
+          now_layout_className = item;
         }
       });
     }
 
     if(w.outerWidth() <= 1024) {
-      if($('body').hasClass('sidebar-mini')) {
+      if($('body').hasclassName('sidebar-mini')) {
         toggle_sidebar_mini(false);
         $('.main-sidebar').niceScroll(sidebar_nicescroll_opts);
         sidebar_nicescroll = $(".main-sidebar").getNiceScroll();
       }
 
-      $("body").addClass("sidebar-gone");
-      $("body").removeClass("layout-2 layout-3 sidebar-mini sidebar-show");
+      $("body").addclassName("sidebar-gone");
+      $("body").removeclassName("layout-2 layout-3 sidebar-mini sidebar-show");
       $("body").off('click touchend').on('click touchend', function(e) {
-        if($(e.target).hasClass('sidebar-show') || $(e.target).hasClass('search-show')) {
-          $("body").removeClass("sidebar-show");
-          $("body").addClass("sidebar-gone");
-          $("body").removeClass("search-show");
+        if($(e.target).hasclassName('sidebar-show') || $(e.target).hasclassName('search-show')) {
+          $("body").removeclassName("sidebar-show");
+          $("body").addclassName("sidebar-gone");
+          $("body").removeclassName("search-show");
 
           update_sidebar_nicescroll();
         }
@@ -245,21 +245,21 @@ $(function() {
 
       update_sidebar_nicescroll();
 
-      if(now_layout_class == 'layout-3') {
-        let nav_second_classes = $(".navbar-secondary").attr('class'),
+      if(now_layout_className == 'layout-3') {
+        let nav_second_classNamees = $(".navbar-secondary").attr('className'),
           nav_second = $(".navbar-secondary");
 
-        nav_second.attr('data-nav-classes', nav_second_classes);
-        nav_second.removeAttr('class');
-        nav_second.addClass('main-sidebar');
+        nav_second.attr('data-nav-classNamees', nav_second_classNamees);
+        nav_second.removeAttr('className');
+        nav_second.addclassName('main-sidebar');
 
         let main_sidebar = $(".main-sidebar");
-        main_sidebar.find('.container').addClass('sidebar-wrapper').removeClass('container');
-        main_sidebar.find('.navbar-nav').addClass('sidebar-menu').removeClass('navbar-nav');
+        main_sidebar.find('.container').addclassName('sidebar-wrapper').removeclassName('container');
+        main_sidebar.find('.navbar-nav').addclassName('sidebar-menu').removeclassName('navbar-nav');
         main_sidebar.find('.sidebar-menu .nav-item.dropdown.show a').click();
         main_sidebar.find('.sidebar-brand').remove();
         main_sidebar.find('.sidebar-menu').before($('<div>', {
-          class: 'sidebar-brand'
+          className: 'sidebar-brand'
         }).append(
           $('<a>', {
             href: $('.navbar-brand').attr('href'),
@@ -271,34 +271,34 @@ $(function() {
         }, 700);
 
         sidebar_dropdown();
-        $(".main-wrapper").removeClass("container");
+        $(".main-wrapper").removeclassName("container");
       }
     }else{
-      $("body").removeClass("sidebar-gone sidebar-show");
-      if(now_layout_class)
-        $("body").addClass(now_layout_class);
+      $("body").removeclassName("sidebar-gone sidebar-show");
+      if(now_layout_className)
+        $("body").addclassName(now_layout_className);
 
-      let nav_second_classes = $(".main-sidebar").attr('data-nav-classes'),
+      let nav_second_classNamees = $(".main-sidebar").attr('data-nav-classNamees'),
         nav_second = $(".main-sidebar");
 
-      if(now_layout_class == 'layout-3' && nav_second.hasClass('main-sidebar')) {
+      if(now_layout_className == 'layout-3' && nav_second.hasclassName('main-sidebar')) {
         nav_second.find(".sidebar-menu li a.has-dropdown").off('click');
         nav_second.find('.sidebar-brand').remove();
-        nav_second.removeAttr('class');
-        nav_second.addClass(nav_second_classes);
+        nav_second.removeAttr('className');
+        nav_second.addclassName(nav_second_classNamees);
 
         let main_sidebar = $(".navbar-secondary");
-        main_sidebar.find('.sidebar-wrapper').addClass('container').removeClass('sidebar-wrapper');
-        main_sidebar.find('.sidebar-menu').addClass('navbar-nav').removeClass('sidebar-menu');
+        main_sidebar.find('.sidebar-wrapper').addclassName('container').removeclassName('sidebar-wrapper');
+        main_sidebar.find('.sidebar-menu').addclassName('navbar-nav').removeclassName('sidebar-menu');
         main_sidebar.find('.dropdown-menu').hide();
         main_sidebar.removeAttr('style');
         main_sidebar.removeAttr('tabindex');
-        main_sidebar.removeAttr('data-nav-classes');
-        $(".main-wrapper").addClass("container");
+        main_sidebar.removeAttr('data-nav-classNamees');
+        $(".main-wrapper").addclassName("container");
         // if(sidebar_nicescroll != null)
         //   sidebar_nicescroll.remove();
-      }else if(now_layout_class == 'layout-2') {
-        $("body").addClass("layout-2");
+      }else if(now_layout_className == 'layout-2') {
+        $("body").addclassName("layout-2");
       }else{
         update_sidebar_nicescroll();
       }
@@ -310,12 +310,12 @@ $(function() {
   $("[data-toggle='search']").click(function() {
     var body = $("body");
 
-    if(body.hasClass('search-gone')) {
-      body.addClass('search-gone');
-      body.removeClass('search-show');
+    if(body.hasclassName('search-gone')) {
+      body.addclassName('search-gone');
+      body.removeclassName('search-show');
     }else{
-      body.removeClass('search-gone');
-      body.addClass('search-show');
+      body.removeclassName('search-gone');
+      body.addclassName('search-show');
     }
   });
 
@@ -401,17 +401,17 @@ $(function() {
         unfollow_text = 'Following';
 
     me.click(function() {
-      if(me.hasClass('following-btn')) {
-        me.removeClass('btn-danger');
-        me.removeClass('following-btn');
-        me.addClass('btn-primary');
+      if(me.hasclassName('following-btn')) {
+        me.removeclassName('btn-danger');
+        me.removeclassName('following-btn');
+        me.addclassName('btn-primary');
         me.html(follow_text);
 
         eval(me.data('unfollow-action'));
       }else{
-        me.removeClass('btn-primary');
-        me.addClass('btn-danger');
-        me.addClass('following-btn');
+        me.removeclassName('btn-primary');
+        me.addclassName('btn-danger');
+        me.addclassName('following-btn');
         me.html(unfollow_text);
 
         eval(me.data('follow-action'));
@@ -442,11 +442,11 @@ $(function() {
       $(target).collapse('toggle');
       $(target).on('shown.bs.collapse', function(e) {
         e.stopPropagation();
-        me.html('<i class="fas fa-minus"></i>');
+        me.html('<i className="fas fa-minus"></i>');
       });
       $(target).on('hidden.bs.collapse', function(e) {
         e.stopPropagation();
-        me.html('<i class="fas fa-plus"></i>');
+        me.html('<i className="fas fa-plus"></i>');
       });
       return false;
     });
@@ -458,7 +458,7 @@ $(function() {
 
     me.attr('href', me.data('image'));
     me.attr('title', me.data('title'));
-    if(me.parent().hasClass('gallery-fw')) {
+    if(me.parent().hasclassName('gallery-fw')) {
       me.css({
         height: me.parent().data('item-height'),
       });
@@ -490,16 +490,16 @@ $(function() {
     var me = $(this);
 
     me.click(function() {
-      if(!me.hasClass('active')) {
+      if(!me.hasclassName('active')) {
         var tab_group = $('[data-tab-group="' + me.data('tab') + '"]'),
             tab_group_active = $('[data-tab-group="' + me.data('tab') + '"].active'),
             target = $(me.attr('href')),
             links = $('[data-tab="'+me.data('tab') +'"]');
 
-        links.removeClass('active');
-        me.addClass('active');
-        target.addClass('active');
-        tab_group_active.removeClass('active');
+        links.removeclassName('active');
+        me.addclassName('active');
+        target.addclassName('active');
+        tab_group_active.removeclassName('active');
       }
       return false;
     });
@@ -512,7 +512,7 @@ $(function() {
       event.preventDefault();
       event.stopPropagation();
     }
-    form.addClass('was-validated');
+    form.addclassName('was-validated');
   });
 
   // alert dismissible

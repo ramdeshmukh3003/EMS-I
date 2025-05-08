@@ -20,7 +20,7 @@ const SalaryView = () => {
     useEffect(()=>{
         const fetchData = async () => {
             const obj = {
-                "_id":id
+                "_id" : id
             }
             const res = await viewAllSalaries(obj);
             const empRes = await getEmployee(res.data[0].employeeID);
@@ -31,7 +31,7 @@ const SalaryView = () => {
         }
         fetchData();
 
-    },[]);
+    },[salary, id]);
 
 
     const inputEvent = (e) =>
@@ -54,7 +54,7 @@ const SalaryView = () => {
         const {salary, bonus, reasonForBonus} = formData;
         if(!salary || !bonus || !reasonForBonus) return toast.error('All Field Required');
         
-        const d = new Date();
+        // const d = new Date();
         
         formData["employeeID"] = employee.id;
 

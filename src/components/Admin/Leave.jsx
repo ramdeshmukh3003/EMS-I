@@ -10,20 +10,20 @@ import Loading from '../Loading';
 
 
 const Leave = () => {
-    const {id} = useParams();
+    const { id } = useParams();
     const [application, setApplication] = useState();
 
     useEffect(()=>{
         const fetchData = async () => {
             const obj = {
-                "_id":id
+                "_id" : id
             }
             const res = await viewLeaves(obj);
             setApplication(res.data[0]);
         }
         fetchData();
 
-    },[application]);
+    },[application, id]);
 
     const approveApplication = async() => {
       console.log(application)

@@ -51,7 +51,7 @@ const Attendance = () => {
       }
       else localStorage.clear();
     }
-  },[]);
+  },[user.id]);
 
   useEffect(()=>{
     const dt = new Date();
@@ -67,7 +67,7 @@ const Attendance = () => {
     } 
     fetchData();
 
-  },[]);
+  },[user.id]);
 
 
 

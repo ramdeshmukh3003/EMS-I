@@ -239,7 +239,7 @@ select.form-control:not([size]):not([multiple]) {
         border-radius: 0 3px 3px 0;
         padding-left: 15px; }
 
-.input-group-append [class*="btn-outline-"] {
+.input-group-append [className*="btn-outline-"] {
   background-color: #fdfdff; }
 
 .form-text {
@@ -1514,7 +1514,7 @@ h6 .badge {
 .sm-gutters {
   margin-left: -5px;
   margin-right: -5px; }
-  .sm-gutters > .col, .sm-gutters > [class*=col-] {
+  .sm-gutters > .col, .sm-gutters > [className*=col-] {
     padding-left: 5px;
     padding-right: 5px; }
 
@@ -2172,7 +2172,7 @@ pre {
   margin-left: -0.25rem; }
 
 .gutters-xs > .col,
-.gutters-xs > [class*="col-"] {
+.gutters-xs > [className*="col-"] {
   padding-right: 0.25rem;
   padding-left: 0.25rem; }
 

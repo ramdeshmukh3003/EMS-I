@@ -21,7 +21,7 @@ const SideBar = () => {
             (user.type==='Admin') ? <Admin/> : (user.type==='Leader') ? <Leader/> : <Employee/>
         }
         <div className="mt-4 mb-4 p-3 hide-sidebar-mini">
-          <a href="https://devdeepak.vercel.app/" target="_blank" className="btn btn-primary btn-lg btn-block btn-icon-split">
+          <a href="https://devdeepak.vercel.app/" target="_blank" className="btn btn-primary btn-lg btn-block btn-icon-split" rel="noreferrer">
             <i className="fas fa-rocket"></i> Deepak Singh
           </a>
         </div>

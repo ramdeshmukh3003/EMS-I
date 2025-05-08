@@ -55,20 +55,20 @@ $('#visitorMap').vectorMap(
   selectedRegions: false,
   showTooltip: true,
   pins: {
-    id: '<div class="jqvmap-circle"></div>',
-    my: '<div class="jqvmap-circle"></div>',
-    th: '<div class="jqvmap-circle"></div>',
-    sy: '<div class="jqvmap-circle"></div>',
-    eg: '<div class="jqvmap-circle"></div>',
-    ae: '<div class="jqvmap-circle"></div>',
-    nz: '<div class="jqvmap-circle"></div>',
-    tl: '<div class="jqvmap-circle"></div>',
-    ng: '<div class="jqvmap-circle"></div>',
-    si: '<div class="jqvmap-circle"></div>',
-    pa: '<div class="jqvmap-circle"></div>',
-    au: '<div class="jqvmap-circle"></div>',
-    ca: '<div class="jqvmap-circle"></div>',
-    tr: '<div class="jqvmap-circle"></div>',
+    id: '<div className="jqvmap-circle"></div>',
+    my: '<div className="jqvmap-circle"></div>',
+    th: '<div className="jqvmap-circle"></div>',
+    sy: '<div className="jqvmap-circle"></div>',
+    eg: '<div className="jqvmap-circle"></div>',
+    ae: '<div className="jqvmap-circle"></div>',
+    nz: '<div className="jqvmap-circle"></div>',
+    tl: '<div className="jqvmap-circle"></div>',
+    ng: '<div className="jqvmap-circle"></div>',
+    si: '<div className="jqvmap-circle"></div>',
+    pa: '<div className="jqvmap-circle"></div>',
+    au: '<div className="jqvmap-circle"></div>',
+    ca: '<div className="jqvmap-circle"></div>',
+    tr: '<div className="jqvmap-circle"></div>',
   },
 });
 
@@ -82,20 +82,20 @@ function getWeather() {
   unit: 'c',
   success: function(weather) {
     var html = '';
-    html += '<div class="weather">';
-    html += '<div class="weather-icon text-primary"><span class="wi wi-yahoo-' + weather.code + '"></span></div>';
-    html += '<div class="weather-desc">';
+    html += '<div className="weather">';
+    html += '<div className="weather-icon text-primary"><span className="wi wi-yahoo-' + weather.code + '"></span></div>';
+    html += '<div className="weather-desc">';
     html += '<h4>' + weather.temp + '&deg;' + weather.units.temp + '</h4>';
-    html += '<div class="weather-text">' + weather.currently + '</div>';
+    html += '<div className="weather-text">' + weather.currently + '</div>';
     html += '<ul><li>' + weather.city + ', ' + weather.region + '</li>';
-    html += '<li> <i class="wi wi-strong-wind"></i> ' + weather.wind.speed+' '+weather.units.speed + '</li></ul>';
+    html += '<li> <i className="wi wi-strong-wind"></i> ' + weather.wind.speed+' '+weather.units.speed + '</li></ul>';
     html += '</div>';
     html += '</div>';
 
     $("#myWeather").html(html);
   },
   error: function(error) {
-    $("#myWeather").html('<div class="alert alert-danger">'+error+'</div>');
+    $("#myWeather").html('<div className="alert alert-danger">'+error+'</div>');
   }
   });
 }

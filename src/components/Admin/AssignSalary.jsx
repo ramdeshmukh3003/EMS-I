@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import HeaderSection from "../../components/HeaderSection";
 import { assignSalary, getEmployees, getLeaders } from "../../http";
 import "react-datepicker/dist/react-datepicker.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 
 
 const AssignSalary = () =>

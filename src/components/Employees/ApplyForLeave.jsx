@@ -2,8 +2,8 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import HeaderSection from "../../components/HeaderSection";
 import { applyforleave } from "../../http";
-import Modal from '../../components/modal/Modal';
-import DatePicker from "react-datepicker";
+// import Modal from '../../components/modal/Modal';
+// import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { useSelector } from "react-redux";
 
@@ -98,7 +98,7 @@ const ApplyForLeave = () =>
                         <div className="input-group">
                                 <div className="input-group-prepend">
                                 <div className="input-group-text">
-                                <i class="fa fa-calendar"></i>
+                                <i className="fa fa-calendar"></i>
                                 </div>
                                 </div>
                                 <input onChange={inputEvent} value={formData.startDate} type="date" id="startDate" name="startDate" className="form-control"></input>
@@ -111,7 +111,7 @@ const ApplyForLeave = () =>
                         <div className="input-group">
                                 <div className="input-group-prepend">
                                 <div className="input-group-text">
-                                <i class="fa fa-calendar"></i>
+                                <i className="fa fa-calendar"></i>
                                 </div>
                                 </div>
                                 <input onChange={inputEvent} value={formData.endDate} type="date" id="endDate" name="endDate" className="form-control"></input>

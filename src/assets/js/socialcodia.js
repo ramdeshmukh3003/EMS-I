@@ -10,8 +10,8 @@
       title: 'Modal Title',
       closeButton: true,
       header: true,
-      bodyClass: '',
-      footerClass: '',
+      bodyclassName: '',
+      footerclassName: '',
       body: '',
       buttons: [],
       autoFocus: true,
@@ -25,10 +25,10 @@
     this.each(function() {
       i++;
       var id = 'fire-modal-' + i,
-        trigger_class = 'trigger--' + id,
-        trigger_button = $('.' + trigger_class);
+        trigger_className = 'trigger--' + id,
+        trigger_button = $('.' + trigger_className);
 
-      $(this).addClass(trigger_class);
+      $(this).addclassName(trigger_className);
 
       // Get modal body
       let body = options.body;
@@ -36,31 +36,31 @@
       if(typeof body == 'object') {
         if(body.length) {
           let part = body;
-          body = body.removeAttr('id').clone().removeClass('modal-part');
+          body = body.removeAttr('id').clone().removeclassName('modal-part');
           part.remove();
         }else{
-          body = '<div class="text-danger">Modal part element not found!</div>';
+          body = '<div className="text-danger">Modal part element not found!</div>';
         }
       }
 
       // Modal base template
-      var modal_template = '   <div class="modal'+ (options.animation == true ? ' fade' : '') +'" tabindex="-1" role="dialog" id="'+ id +'">  '  +
-                 '     <div class="modal-dialog '+options.size+(options.center ? ' modal-dialog-centered' : '')+'" role="document">  '  +
-                 '       <div class="modal-content">  '  +
+      var modal_template = '   <div className="modal'+ (options.animation == true ? ' fade' : '') +'" tabindex="-1" role="dialog" id="'+ id +'">  '  +
+                 '     <div className="modal-dialog '+options.size+(options.center ? ' modal-dialog-centered' : '')+'" role="document">  '  +
+                 '       <div className="modal-content">  '  +
                  ((options.header == true) ?
-                 '         <div class="modal-header">  '  +
-                 '           <h5 class="modal-title">'+ options.title +'</h5>  '  +
+                 '         <div className="modal-header">  '  +
+                 '           <h5 className="modal-title">'+ options.title +'</h5>  '  +
                  ((options.closeButton == true) ?
-                 '           <button type="button" class="close" data-dismiss="modal" aria-label="Close">  '  +
+                 '           <button type="button" className="close" data-dismiss="modal" aria-label="Close">  '  +
                  '             <span aria-hidden="true">&times;</span>  '  +
                  '           </button>  '
                  : '') +
                  '         </div>  '
                  : '') +
-                 '         <div class="modal-body">  '  +
+                 '         <div className="modal-body">  '  +
                  '         </div>  '  +
                  (options.buttons.length > 0 ?
-                 '         <div class="modal-footer">  '  +
+                 '         <div className="modal-footer">  '  +
                  '         </div>  '
                  : '')+
                  '       </div>  '  +
@@ -77,7 +77,7 @@
         let id = "id" in item ? item.id : '';
 
         // Button template
-        this_button = '<button type="'+ ("submit" in item && item.submit == true ? 'submit' : 'button') +'" class="'+ item.class +'" id="'+ id +'">'+ item.text +'</button>';
+        this_button = '<button type="'+ ("submit" in item && item.submit == true ? 'submit' : 'button') +'" className="'+ item.className +'" id="'+ id +'">'+ item.text +'</button>';
 
         // add click event to the button
         this_button = $(this_button).off('click').on("click", function() {
@@ -91,11 +91,11 @@
       // append a given body to the modal
       $(modal_template).find('.modal-body').append(body);
 
-      // add additional body class
-      if(options.bodyClass) $(modal_template).find('.modal-body').addClass(options.bodyClass);
+      // add additional body className
+      if(options.bodyclassName) $(modal_template).find('.modal-body').addclassName(options.bodyclassName);
 
-      // add footer body class
-      if(options.footerClass) $(modal_template).find('.modal-footer').addClass(options.footerClass);
+      // add footer body className
+      if(options.footerclassName) $(modal_template).find('.modal-footer').addclassName(options.footerclassName);
 
       // execute 'created' callback
       options.created.call(this, modal_template, options);
@@ -128,15 +128,15 @@
         // form object
         let form_object = {
           startProgress: function() {
-            modal_template.addClass('modal-progress');
+            modal_template.addclassName('modal-progress');
           },
           stopProgress: function() {
-            modal_template.removeClass('modal-progress');
+            modal_template.removeclassName('modal-progress');
           }
         };
 
         // if form is not contains button element
-        if(!modal_form.find('button').length) $(modal_form).append('<button class="d-none" id="'+ id +'-submit"></button>');
+        if(!modal_form.find('button').length) $(modal_form).append('<button className="d-none" id="'+ id +'-submit"></button>');
 
         // add click event
         form_submit_btn.click(function() {
@@ -153,7 +153,7 @@
         });
       }
 
-      $(document).on("click", '.' + trigger_class, function() {
+      $(document).on("click", '.' + trigger_className, function() {
         let modal = $('#' + id).modal(options.modal);
 
         if(options.removeOnDismiss) {
@@ -185,15 +185,15 @@
 
     var me = $(card);
 
-    me.addClass('card-progress');
+    me.addclassName('card-progress');
     if(options.spinner == false) {
-      me.addClass('remove-spinner');
+      me.addclassName('remove-spinner');
     }
 
     if(options.dismiss == true) {
-      var btn_dismiss = '<a class="btn btn-danger card-progress-dismiss">'+options.dismissText+'</a>';
+      var btn_dismiss = '<a className="btn btn-danger card-progress-dismiss">'+options.dismissText+'</a>';
       btn_dismiss = $(btn_dismiss).off('click').on('click', function() {
-        me.removeClass('card-progress');
+        me.removeclassName('card-progress');
         me.find('.card-progress-dismiss').remove();
         options.onDismiss.call(this, me);
       });
@@ -209,7 +209,7 @@
 
   $.cardProgressDismiss = function(card, dismissed) {
     var me = $(card);
-    me.removeClass('card-progress');
+    me.removeclassName('card-progress');
     me.find('.card-progress-dismiss').remove();
     if(dismissed)
       dismissed.call(this, me);
@@ -227,17 +227,17 @@
     }, chat);
 
     var target = $(element),
-        element = '<div class="chat-item '+chat.position+'" style="display:none">' +
+        element = '<div className="chat-item '+chat.position+'" style="display:none">' +
                   '<img src="'+chat.picture+'">' +
-                  '<div class="chat-details">' +
-                  '<div class="chat-text">'+chat.text+'</div>' +
-                  '<div class="chat-time">'+chat.time+'</div>' +
+                  '<div className="chat-details">' +
+                  '<div className="chat-text">'+chat.text+'</div>' +
+                  '<div className="chat-time">'+chat.time+'</div>' +
                   '</div>' +
                   '</div>',
-        typing_element = '<div class="chat-item chat-left chat-typing" style="display:none">' +
+        typing_element = '<div className="chat-item chat-left chat-typing" style="display:none">' +
                   '<img src="'+chat.picture+'">' +
-                  '<div class="chat-details">' +
-                  '<div class="chat-text"></div>' +
+                  '<div className="chat-details">' +
+                  '<div className="chat-text"></div>' +
                   '</div>' +
                   '</div>';
 

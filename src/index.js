@@ -10,7 +10,7 @@ import { ToastContainer } from 'react-toastify';
 
 ReactDOM.render(
   <React.StrictMode>
-  <Provider store={store}>
+  <Provider store={store} >
     <BrowserRouter>
       <App/>
       <ToastContainer/>
