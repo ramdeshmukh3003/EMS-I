@@ -36,7 +36,7 @@ const AddUser = () =>
         {
             return fd.append(key,formData[key]);
         })
-        console.log(fd);
+        // console.log(fd);
         const {success,message} = await addUser(fd);
         if(success)
         {

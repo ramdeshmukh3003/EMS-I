@@ -5,7 +5,7 @@ import  style from  './Modal.module.css';
 const Modal = ({close,title,children,width}) =>
 {
     const [windowWidth,setWindowWidth] = useState(window.innerWidth);
-    console.log(windowWidth);
+    // console.log(windowWidth);
 
     const updateWidth = () =>
     {

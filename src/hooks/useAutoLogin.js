@@ -23,7 +23,7 @@ export const useAutoLogin = () => {
               dispatch(setAuth(res.data.user));
             }
           } catch (err) {
-            console.log("Auto-login error:", err.response?.data || err.message);
+            // console.log("Auto-login error:", err.response?.data || err.message);
           } finally {
             setLoading(false);
           }

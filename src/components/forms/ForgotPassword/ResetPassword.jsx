@@ -33,7 +33,7 @@ const ResetPassword = () =>
         const {email,otp,password} = formData;
         if(!email || !otp || !password) return toast.error('All Fields Required');
         const res = await resetPassword({email,otp,password});
-        console.log(res);
+        // console.log(res);
         res.success ? toast.success(res.message) : toast.error(res.message);
         if(res.success)
             history.push('/login');

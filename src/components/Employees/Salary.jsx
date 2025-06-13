@@ -17,7 +17,7 @@ const Salary = () => {
     const obj = {
       "employeeID":user.id
     }
-    console.log(user.id);
+    // console.log(user.id);
     const fetchData = async () => {
       const res = await viewEmployeeSalary(obj);
       const {data} = res;

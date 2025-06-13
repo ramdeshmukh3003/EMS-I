@@ -25,7 +25,7 @@ const AssignSalary = () =>
 
     const inputEvent = (e) =>
     {
-      console.log(formData);
+      // console.log(formData);
         const {name,value} = e.target;
         setFormData((old)=>
         {
@@ -45,7 +45,7 @@ const AssignSalary = () =>
         formData["employeeID"] = selectedEmployee;
         const res = await assignSalary(formData);
         const {success} = res;
-        console.log(res)
+        // console.log(res)
         if(success) {
           toast.success("Salary Assigned!");
         }    

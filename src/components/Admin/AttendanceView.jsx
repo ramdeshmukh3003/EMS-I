@@ -50,7 +50,7 @@ const AttendanceView = () => {
       const res = await getAttendance(obj);
       
       const {data} = res;
-      console.log(data)
+      // console.log(data)
       setAttendance(data);
     } 
     const fetchEmployees = async () => {
@@ -86,7 +86,7 @@ const AttendanceView = () => {
         obj["date"] = selectedDay;
       }
 
-      console.log(obj);
+      // console.log(obj);
 
       const res = await getAttendance(obj);
       const {data} = res;

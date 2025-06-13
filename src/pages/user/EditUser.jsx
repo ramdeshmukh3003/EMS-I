@@ -62,8 +62,8 @@ const EditUser = () =>
     const onSubmit = async (e) =>
     {
         e.preventDefault();
-        console.log(updateFormData.type)
-        console.log(formData.type)
+        // console.log(updateFormData.type)
+        // console.log(formData.type)
         if(updateFormData.type && !showModal) return setShowModal(true);
 
         const fd = new FormData();
@@ -72,7 +72,7 @@ const EditUser = () =>
             return fd.append(key,updateFormData[key]);
         })
         const {success,message} = await updateUser(id,fd);
-        console.log("Update User:",message)
+        // console.log("Update User:",message)
         return (success) && toast.success(message)
     }
 

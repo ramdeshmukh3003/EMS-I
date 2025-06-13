@@ -44,7 +44,7 @@ const Attendance = () => {
     const storedData = localStorage.getItem(user.id);
     if(storedData){
       const data = JSON.parse(storedData);
-      console.log(data)
+      // console.log(data)
       const dt = data.date + "/" + data.month + "/" + data.year;
       if(dt===new Date().toLocaleDateString()){
         setIsAttendanceMarked(true);

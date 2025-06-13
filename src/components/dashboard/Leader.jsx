@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 const Leader = () => {
   const {user} = useSelector(state => state.authSlice);
-  console.log(user)
+  // console.log(user)
   
   return (
     <div className="">

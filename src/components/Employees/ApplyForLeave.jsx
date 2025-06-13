@@ -16,7 +16,7 @@ const ApplyForLeave = () =>
 
     const inputEvent = (e) =>
     {
-      console.log(formData);
+    //   console.log(formData);
         const {name,value} = e.target;
         setFormData((old)=>
         {
@@ -39,12 +39,12 @@ const ApplyForLeave = () =>
         formData["applicantID"] = user.id;
         formData["appliedDate"] = d.getFullYear()+"-"+(d.getMonth()+1)+"-"+d.getDate();
 
-        console.log(formData);
+        // console.log(formData);
 
 
         const res = await applyforleave(formData);
         const {success} = res;
-        console.log(res)
+        // console.log(res)
         if(success) {
           toast.success("Leave Application Sent!");
         }    

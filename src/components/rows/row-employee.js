@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 const RowEmployee = ({index,data}) =>
 {
     const {user} = useSelector(state => state.authSlice); 
-    console.log(user)
+    // console.log(user)
     return(
         <tr>
             <td>{index}</td>

@@ -17,7 +17,7 @@ const RowAddLeader = ({index,data}) =>
         if(res.success)
         {
             toast.success(res.message);
-            console.log('data'+data)
+            // console.log('data'+data)
             dispatch(setTeamLeader(data))
         }
   }

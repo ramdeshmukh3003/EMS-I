@@ -26,7 +26,7 @@ const Leave = () => {
     },[application, id]);
 
     const approveApplication = async() => {
-      console.log(application)
+      // console.log(application)
       if(application.adminResponse==="Approved")
       {
         toast.error("Application already approved");
@@ -42,7 +42,7 @@ const Leave = () => {
     }
 
     const rejectApplication = async () => {
-      console.log(application)
+      // console.log(application)
       if(application.adminResponse==="Rejected")
       {
         toast.error("Application already rejected");

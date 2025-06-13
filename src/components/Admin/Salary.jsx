@@ -36,7 +36,7 @@ const SalaryView = () => {
 
     const inputEvent = (e) =>
     {
-      console.log(formData);
+      // console.log(formData);
         const {name,value} = e.target;
         setFormData((old)=>
         {
@@ -58,12 +58,12 @@ const SalaryView = () => {
         
         formData["employeeID"] = employee.id;
 
-        console.log(formData);
+        // console.log(formData);
 
 
         const res = await updateSalary(formData);
         const {success} = res;
-        console.log(res)
+        // console.log(res)
         if(success) {
           toast.success("Salary Updated!");
         }    
