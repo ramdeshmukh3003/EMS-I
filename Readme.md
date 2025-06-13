@@ -124,10 +124,8 @@ Client Repository: https://github.com/deepak-singh5219/Easy-Employee
 
 Server Repository: https://github.com/deepak-singh5219/Easy-Employee-API
 
-Follow these steps to set up the Employee Management System on your local machine:
-
-### Prerequisites
-
+Follow these steps to set up the employee Management System on your local
+### Prerequisit
 Make sure you have the following installed:
 
 - [Node.js](https://nodejs.org/)

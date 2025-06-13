@@ -1,1 +1,1 @@
-export const REACT_APP_BASE_URL = "https://ems-ii.onrender.com";
+export const REACT_APP_BASE_URL = "http://localhost:5500";
