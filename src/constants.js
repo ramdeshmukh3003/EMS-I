@@ -1,1 +1,1 @@
-export const REACT_APP_BASE_URL = "http://localhost:5500";
+export const REACT_APP_BASE_URL = "https://teamsync-ax8p.onrender.com";
