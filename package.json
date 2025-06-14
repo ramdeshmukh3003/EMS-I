@@ -13,7 +13,6 @@
     "jquery": "^3.6.0",
     "materialize-css": "^1.0.0-rc.2",
     "moment": "^2.29.1",
-    "postcss-pseudo-class-any-link": "^10.0.1",
     "react": "^17.0.2",
     "react-datepicker": "^4.21.0",
     "react-dom": "^17.0.2",
